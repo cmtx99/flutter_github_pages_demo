@@ -51,7 +51,8 @@ class _ScaffoldExampleState extends State<ScaffoldExample> {
               return notification.depth == 1;
             },
             scrolledUnderElevation: scrolledUnderElevation,
-            shadowColor: Theme.of(context).shadowColor,
+            shadowColor:
+                shadowColor ? Theme.of(context).colorScheme.shadow : null,
             bottom: TabBar(
               tabs: <Widget>[
                 Tab(
@@ -71,15 +72,14 @@ class _ScaffoldExampleState extends State<ScaffoldExample> {
           ),
           body: TabBarView(
             children: <Widget>[
-              Center(
-                child: Text('You have pressed the button $_count times.'),
-              ),
               ListView.builder(
                 itemCount: 25,
                 itemBuilder: (BuildContext context, int index) {
                   return ListTile(
                     tileColor: index.isOdd ? oddItemColor : evenItemColor,
                     title: Text('${titles[0]} $index'),
+                    subtitle:
+                        Text('You have pressed the button $_count times.'),
                   );
                 },
               ),
@@ -89,6 +89,8 @@ class _ScaffoldExampleState extends State<ScaffoldExample> {
                   return ListTile(
                     tileColor: index.isOdd ? oddItemColor : evenItemColor,
                     title: Text('${titles[1]} $index'),
+                    subtitle:
+                        Text('You have pressed the button $_count times.'),
                   );
                 },
               ),
@@ -98,6 +100,8 @@ class _ScaffoldExampleState extends State<ScaffoldExample> {
                   return ListTile(
                     tileColor: index.isOdd ? oddItemColor : evenItemColor,
                     title: Text('${titles[2]} $index'),
+                    subtitle:
+                        Text('You have pressed the button $_count times.'),
                   );
                 },
               ),
